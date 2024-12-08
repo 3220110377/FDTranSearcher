@@ -36,13 +36,15 @@ conda activate FDTranSearcher
 
 Requirements:
 
-- Python >=3.9.18
-- BLAST >= 2.5.0
 - Ubuntu  20.04.2 LTS(Recommended)
+- BLAST >= 2.5.0
+- Python >=3.9.18
 - Required Python packages:
   - biopython >= 1.78
-  - PyYAML >=6.0.2
+  - matplotlib
   - pandas
+  - numpy
+
  
 ### Additional Tool Installation
 
