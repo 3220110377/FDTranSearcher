@@ -9,6 +9,7 @@ FDTranSearcher is a tool designed for detecting functional DNA transposons in ge
 - [Modes](#modes)
 - [Parameters](#parameters)
 - [Usage](#usage)
+- [Program Workflow](#program-workflow)
 - [Citation](#citation)
 
 ## Background
@@ -41,9 +42,12 @@ Requirements:
 - Python >=3.9.18
 - Required Python packages:
   - biopython >= 1.78
+  - psutil=6.1.0
+  - tqdm=4.66.2
   - matplotlib
   - pandas
   - numpy
+
 
  
 ### Additional Tool Installation
@@ -182,6 +186,15 @@ Please enter parameters for the de novo module, e.g., -i file -o output:
 
 Please enter the path to save the final merged results, e.g., /path/to/output.gff:
 ```
+
+## Program Workflow
+
+The entire algorithm of the tool can be divided into two parts, corresponding to the reference-based pipeline and the de novo pipeline.
+
+<img width="1261" alt="b56a72c1fb789708e50bff028954b4c" src="https://github.com/user-attachments/assets/eb9a2094-3bd2-4590-a390-5c90f50d5f1e">
+
+- Reference based : The consensus sequence was first identified in the genome using BLAST. Then miniprot was used to find nearby transposase regions. Finally, TIR and TSD were checked using compress trie.
+- De novo : Matching of structural features using sliding window and KMP algorithms. Combined with conserved sites for further transposon confirmation.
 
 ## Citation
 
