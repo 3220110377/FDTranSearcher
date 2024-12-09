@@ -1,6 +1,13 @@
 # FDTranSearcher
 
-FDTranSearcher is a tool designed for detecting functional DNA transposons in genomes. Currently, it supports Linux and macOS systems. For Windows users, BLAST+ must be manually downloaded because conda does not provide BLAST for Windows.
+FDTranSearcher is a bioinformatics tool for detecting functional DNA transposons in genomic sequences.
+
+### Supported Operating Systems
+- Linux ✅
+- macOS ✅
+- Windows (with limitations) ⚠️
+
+> **Important**: Windows users must manually download and install BLAST+ from the [NCBI website](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.5.0/), as conda does not provide BLAST packages for Windows.
 
 ## Table of Contents
 
@@ -9,44 +16,49 @@ FDTranSearcher is a tool designed for detecting functional DNA transposons in ge
 - [Modes](#modes)
 - [Parameters](#parameters)
 - [Usage](#usage)
-- [Program Workflow](#program-workflow)
 - [Citation](#citation)
 
 ## Background
 
 Transposon elements (TEs) are elements that can move around the genome and can be broadly classified into two main categories:  copy-and-paste retrotransposons and cut-and-paste DNA transposons. Studies have shown that DNA transposons play important roles in plant genomes for gene regulation and evolution.
 
-However, the search and verification for functional DNA transposons with transposase in genomes is still a major challenge. To facilitate further research, we plan to develop tools for finding functional DNA transposons in the maize genome, and try to expand to other plant genomes. In order to address different application scenarios, we intend to design three modules: 
-- pipeline construction based on existing databases to find known functional DNA transposons 
-- de novo algorithms based on structural features to find unknown functional DNA transposons
-- build a ensemble tool for comprehensive functional DNA transposon annotation
+However, the search and verification for  **functional DNA transposons with transposase activity**  in genomes is still a major challenge. To facilitate further research, we plan to develop tools for finding functional DNA transposons in the maize genome, and try to expand to other plant genomes. In order to address different application scenarios, we designed three modules: 
+1. **Reference-based Pipeline**  
+   A pipeline leveraging existing databases to identify known functional DNA transposons.
+2. **De Novo Algorithm**  
+   An algorithm that uses structural features to predict unknown functional DNA transposons.
+3. **Ensemble Tool**  
+   A comprehensive module that integrates the outputs of both pipelines for robust functional DNA transposon annotation.
 
 ## Installation
 
 ### Using Conda (Recommended)
 
-After downloading the source code, we recommend creating a virtual environment that meets the requirements of this tool. Run the following commands in your terminal:
+After downloading the source code, we recommend creating a virtual environment that meets the requirements of this tool. Follow the commands below:
 
 ```bash
+git clone https://github.com/CHENyiru3/FDTranSearcher
 cd FDTranSearcher
+# Create and activate the Conda environment:
 conda env create -f environment.yml
 conda activate FDTranSearcher
 ```
-
 ### Manual Installation
 
-Requirements:
+If you prefer a manual setup, ensure you meet the following system and package requirements:
 
-- Ubuntu  20.04.2 LTS(Recommended)
-- BLAST >= 2.5.0
-- Python >=3.9.18
-- Required Python packages:
-  - biopython >= 1.78
-  - psutil=6.1.0
-  - tqdm=4.66.2
-  - matplotlib
-  - pandas
-  - numpy
+#### Environment Requirements
+- **Python**: Version >= 3.9.18  
+- **BLAST**: Version >= 2.5.0  
+- **Operating System**: Ubuntu 20.04.2 LTS (Recommended)
+
+#### Required Python Packages
+- biopython >= 1.78
+- psutil=6.1.0
+- tqdm=4.66.2
+- matplotlib
+- pandas
+- numpy
 
 
  
